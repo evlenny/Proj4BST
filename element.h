@@ -13,8 +13,8 @@ template <class T>
 class Element 
 {
 private:
-        T item;
-        int key;
+        T data;
+        T key;
 
 public:
     Element( void ); // empty constructor
