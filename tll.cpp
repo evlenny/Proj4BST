@@ -138,7 +138,36 @@ T triplinkedlist<T>::successor(const T k)
 //preconditions: 
 //postconditions:  
 {
-    
+    Node x = findNode(this, k);
+    if ( x ==  nullptr )
+        return nullptr;
+    else{
+        Node y = x.parent;
+        while ( y != nullprt and x == y.right){
+            x = y;
+            y = y.parent;
+        }
+        return y
+    }
+}
+
+//=========================================================================
+// findNode 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
+//preconditions: 
+//postconditions:  
+{
+    while (root != nullptr && root.key != k) {
+        if (k < root->key)
+            root = root.left;
+        else
+            root = root.right;
+    }
+    return root;
 }
 
 //=========================================================================
