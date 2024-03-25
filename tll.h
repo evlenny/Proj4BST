@@ -9,7 +9,7 @@ using namespace std;
 #define TRIPLYLINKEDLIST_H
 
 template <class T> 
-class linkedlist
+class triplinkedlist
 {
 private:
     struct Node
