@@ -10,7 +10,7 @@ using namespace std;
 // Return:	none
 //=========================================================================
 template <class T>
-triplinkedlist<T>::tripinkedlist()
+triplinkedlist<T>::triplinkedlist()
 //preconditions: none
 //postconditions: linked list object is created 
 {
@@ -23,11 +23,27 @@ triplinkedlist<T>::tripinkedlist()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::insert()
+triplinkedlist<T>::insert( const Element<T> &elem )
 //preconditions: none
 //postconditions: linked list object is created 
 {
-    
+    //if empty, construct
+
+    Node *newNode = new Node;
+    newNode->item = elem;
+    newNode->parent = nullptr;
+    newNode->left = head;
+    newNode->right = nullptr;
+
+    while ( elem.get_key() != NULL ){
+        if 
+    }
+ 
+
+    if (head != nullptr)
+        head->prev = newNode;
+
+    head = newNode;
 }
 
 //=========================================================================
