@@ -197,7 +197,9 @@ string triplinkedlist<T>::in_order()
 //preconditions: 
 //postconditions:  
 {
-    
+    string s = "";
+    in_order(head, s);
+    return s;
 }
 
 //=========================================================================
