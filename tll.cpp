@@ -160,7 +160,7 @@ T triplinkedlist<T>::successor(const T k)
         return nullptr;
     else{
         Node y = x.parent;
-        while ( y != nullprt and x == y.right){
+        while ( y != NULL && x == y.right){
             x = y;
             y = y.parent;
         }
@@ -174,12 +174,12 @@ T triplinkedlist<T>::successor(const T k)
 // Return:	
 //=========================================================================
 template <class T>
-Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
+Element<T> triplinkedlist<T>::findNode(triplinkedlist root, const T k)
 //preconditions: 
 //postconditions:  
 {
     while (root != nullptr && root.key != k) {
-        if (k < root->key)
+        if (k < root.key)
             root = root.left;
         else
             root = root.right;

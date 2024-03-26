@@ -37,6 +37,7 @@ public:
     T successor( const T k);
     string in_order(void);
     void trim(T high, T low);
+    Element<T> findNode(triplinkedlist root, const T k);
 };
 
 #endif
