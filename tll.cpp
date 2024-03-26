@@ -26,6 +26,7 @@ template <class T>
 triplinkedlist<T>::insert( const Element<T> &elem )
 //preconditions: none
 //postconditions: linked list object is created 
+
 {
     //if empty, construct
 
@@ -52,9 +53,9 @@ triplinkedlist<T>::insert( const Element<T> &elem )
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::remove()
-//preconditions: none
-//postconditions: linked list object is created 
+void triplinkedlist<T>::remove(const T k)
+//preconditions: 
+//postconditions: 
 {
     
 }
@@ -65,11 +66,11 @@ triplinkedlist<T>::remove()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::empty()
-//preconditions: none
-//postconditions: linked list object is created 
+bool  triplinkedlist<T>::empty( void )
+//preconditions: 
+//postconditions: 
 {
-    
+    return head == nullptr;
 }
 
 //=========================================================================
@@ -78,11 +79,16 @@ triplinkedlist<T>::empty()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::max_key()
-//preconditions: none
-//postconditions: linked list object is created 
+T triplinkedlist<T>::max_key()
+//preconditions: 
+//postconditions:  
 {
-    
+    Element<T> max = x;
+    while (x != NULL){
+        max = x;
+        x = x.left;
+    }
+    return max.key;
 }
 
 //=========================================================================
@@ -91,11 +97,16 @@ triplinkedlist<T>::max_key()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::max_data()
-//preconditions: none
-//postconditions: linked list object is created 
+T triplinkedlist<T>::max_data()
+//preconditions: 
+//postconditions: 
 {
-    
+    Element<T> max = x;
+    while (x != NULL){
+        max = x;
+        x = x.left;
+    }
+    return max.data;
 }
 
 //=========================================================================
@@ -104,11 +115,16 @@ triplinkedlist<T>::max_data()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::min_key()
-//preconditions: none
-//postconditions: linked list object is created 
+T triplinkedlist<T>::min_key()
+//preconditions: 
+//postconditions:  
 {
-    
+    Element<T> min = x;
+    while (x != NULL){
+        min = x;
+        x = x.right;
+    }
+    return min.key;
 }
 
 //=========================================================================
@@ -117,11 +133,16 @@ triplinkedlist<T>::min_key()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::min_data()
-//preconditions: none
-//postconditions: linked list object is created 
+T triplinkedlist<T>::min_data()
+//preconditions: 
+//postconditions:  
 {
-    
+    Element<T> min = x;
+    while (x != NULL){
+        min = x;
+        x = x.right;
+    }
+    return min.data;
 }
 
 //=========================================================================
@@ -130,11 +151,40 @@ triplinkedlist<T>::min_data()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::successor()
-//preconditions: none
-//postconditions: linked list object is created 
+T triplinkedlist<T>::successor(const T k)
+//preconditions: 
+//postconditions:  
 {
-    
+    Node x = findNode(this, k);
+    if ( x ==  nullptr )
+        return nullptr;
+    else{
+        Node y = x.parent;
+        while ( y != nullprt and x == y.right){
+            x = y;
+            y = y.parent;
+        }
+        return y
+    }
+}
+
+//=========================================================================
+// findNode 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
+//preconditions: 
+//postconditions:  
+{
+    while (root != nullptr && root.key != k) {
+        if (k < root->key)
+            root = root.left;
+        else
+            root = root.right;
+    }
+    return root;
 }
 
 //=========================================================================
@@ -143,9 +193,9 @@ triplinkedlist<T>::successor()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::in_order()
-//preconditions: none
-//postconditions: linked list object is created 
+string triplinkedlist<T>::in_order()
+//preconditions: 
+//postconditions:  
 {
     
 }
@@ -156,9 +206,9 @@ triplinkedlist<T>::in_order()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::trim()
-//preconditions: none
-//postconditions: linked list object is created 
+void triplinkedlist<T>::trim(T high, T low)
+//preconditions: 
+//postconditions:  
 {
     
 }

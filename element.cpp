@@ -9,7 +9,7 @@
 // Creates an empty Element object
 //=========================================================================
 template <class T>
-Element<T>::Element() : item(T()), key(-1) {
+Element<T>::Element() : item(T()), key(T()) {
     // Default constructor of T is used to initialize item
     // For int, it initializes to 0 (using std::numeric_limits), for std::string, it initializes to empty string
 }

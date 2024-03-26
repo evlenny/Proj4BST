@@ -23,12 +23,20 @@ private:
     Node *head;          
 
 public:
-    linkedlist( void );
+    triplinkedlist( void );
     void insert( const Element<T> &elem );
-    void remove(const int k);
+    void remove(const T k);
     string to_string( void ) const; 
     bool search(const Element<T> &elem) const;
-    bool is_empty( void );
+    bool empty( void );
+    T get( k );
+    T max_data(void);
+    T max_key(void);
+    T min_data(void);
+    T min_key(void);
+    T successor( const T k);
+    string in_order(void);
+    void trim(T high, T low);
 };
 
 #endif
