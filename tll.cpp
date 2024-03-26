@@ -10,9 +10,9 @@ using namespace std;
 // Return:	none
 //=========================================================================
 template <class T>
-triplinkedlist<T>::triplinkedlist()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::tripinkedlist()
+// preconditions: none
+// postconditions: linked list object is created
 {
     head = nullptr;
 }
@@ -23,28 +23,10 @@ triplinkedlist<T>::triplinkedlist()
 // Return:
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::insert(const Element<T> &elem)
-// preconditions:
-// postconditions:
-
+triplinkedlist<T>::insert()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    // if empty, construct
-
-    Node *newNode = new Node;
-    newNode->item = elem;
-    newNode->parent = nullptr;
-    newNode->left = head;
-    newNode->right = nullptr;
-
-    while (elem.get_key() != NULL)
-    {
-        if
-    }
-
-    if (head != nullptr)
-        head->prev = newNode;
-
-    head = newNode;
 }
 
 //=========================================================================
@@ -53,9 +35,9 @@ void triplinkedlist<T>::insert(const Element<T> &elem)
 // Return:
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::remove(const T k)
-// preconditions:
-// postconditions:
+triplinkedlist<T>::remove()
+// preconditions: none
+// postconditions: linked list object is created
 {
 }
 
@@ -65,11 +47,10 @@ void triplinkedlist<T>::remove(const T k)
 // Return:
 //=========================================================================
 template <class T>
-bool triplinkedlist<T>::empty(void)
-// preconditions:
-// postconditions:
+triplinkedlist<T>::empty()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    return (head == nullpt);
 }
 
 //=========================================================================
@@ -78,17 +59,10 @@ bool triplinkedlist<T>::empty(void)
 // Return:
 //=========================================================================
 template <class T>
-T triplinkedlist<T>::max_key()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::max_key()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    Element<T> max = x;
-    while (x != NULL)
-    {
-        max = x;
-        x = x.left;
-    }
-    return max.key;
 }
 
 //=========================================================================
@@ -97,17 +71,10 @@ T triplinkedlist<T>::max_key()
 // Return:
 //=========================================================================
 template <class T>
-T triplinkedlist<T>::max_data()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::max_data()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    Element<T> max = x;
-    while (x != NULL)
-    {
-        max = x;
-        x = x.left;
-    }
-    return max.data;
 }
 
 //=========================================================================
@@ -116,17 +83,10 @@ T triplinkedlist<T>::max_data()
 // Return:
 //=========================================================================
 template <class T>
-T triplinkedlist<T>::min_key()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::min_key()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    Element<T> min = x;
-    while (x != NULL)
-    {
-        min = x;
-        x = x.right;
-    }
-    return min.key;
 }
 
 //=========================================================================
@@ -135,17 +95,10 @@ T triplinkedlist<T>::min_key()
 // Return:
 //=========================================================================
 template <class T>
-T triplinkedlist<T>::min_data()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::min_data()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    Element<T> min = x;
-    while (x != NULL)
-    {
-        min = x;
-        x = x.right;
-    }
-    return min.data;
 }
 
 //=========================================================================
@@ -154,45 +107,10 @@ T triplinkedlist<T>::min_data()
 // Return:
 //=========================================================================
 template <class T>
-T triplinkedlist<T>::successor(const T k)
-// preconditions:
-// postconditions:
+triplinkedlist<T>::successor()
+// preconditions: none
+// postconditions: linked list object is created
 {
-    Node x = findNode(this, k);
-    if (x == nullptr)
-        return nullptr;
-    if (x.right != nullptr)
-        return (x.right.min_data());
-    else
-    {
-        Node y = x.parent;
-        while (y != nullprt and x == y.right)
-        {
-            x = y;
-            y = y.parent;
-        }
-        return y
-    }
-}
-
-//=========================================================================
-// findNode
-// Parameters:
-// Return:
-//=========================================================================
-template <class T>
-Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
-// preconditions:
-// postconditions:
-{
-    while (root != nullptr && root.key != k)
-    {
-        if (k < root->key)
-            root = root.left;
-        else
-            root = root.right;
-    }
-    return root;
 }
 
 //=========================================================================
@@ -201,9 +119,9 @@ Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
 // Return:
 //=========================================================================
 template <class T>
-string triplinkedlist<T>::in_order()
-// preconditions:
-// postconditions:
+triplinkedlist<T>::in_order()
+// preconditions: none
+// postconditions: linked list object is created
 {
     string s = "";
     in_order(head, s);
@@ -216,8 +134,8 @@ string triplinkedlist<T>::in_order()
 // Return:
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::trim(T high, T low)
-// preconditions:
-// postconditions:
+triplinkedlist<T>::trim()
+// preconditions: none
+// postconditions: linked list object is created
 {
 }
