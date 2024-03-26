@@ -158,7 +158,8 @@ T triplinkedlist<T>::successor(const T k)
 //preconditions: 
 //postconditions:  
 {
-    Node x = findNode(this, k);
+    Node *x = findNode(this, k);
+    
     if ( x ==  nullptr )
         return nullptr;
     else{
@@ -177,17 +178,19 @@ T triplinkedlist<T>::successor(const T k)
 // Return:	
 //=========================================================================
 template <class T>
-Element<T> triplinkedlist<T>::findNode(triplinkedlist root, const T k)
+Element<T> triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
 //preconditions: 
 //postconditions:  
 {
-    while (root != nullptr && root.key != k) {
-        if (k < root.key)
-            root = root.left;
+    Node *x = tree.head;
+    
+    while (x != nullptr && x.key != k) {
+        if (k < x.key)
+            x = x.left;
         else
-            root = root.right;
+            x = x.right;
     }
-    return root;
+    return x;
 }
 
 //=========================================================================
@@ -229,7 +232,7 @@ void triplinkedlist<T>::trim(T high, T low)
 // Return:	
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::transplant( Node<T> u, Node<T> v)
+void triplinkedlist<T>::transplant( Node u, Node v)
 //preconditions: 
 //postconditions:  
 {
@@ -240,22 +243,4 @@ void triplinkedlist<T>::transplant( Node<T> u, Node<T> v)
     else (u.parent.right = v);
     if ( v != NULL )
         v.parent = u.parent;
-}
-
-
-//=========================================================================
-// min 
-// Parameters: 
-// Return:	
-//=========================================================================
-template <class T>
-Node<T> triplinkedlist<T>::min()
-//preconditions: 
-//postconditions:  
-{
-    Node<T> x = this.root;
-    while ( x != NULL ){
-        x = x.left;
-    }
-    return x.parent
 }
