@@ -217,3 +217,40 @@ void triplinkedlist<T>::trim(T high, T low)
 {
     
 }
+
+//=========================================================================
+// transplant 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+void triplinkedlist<T>::transplant( Node<T> u, Node<T> v)
+//preconditions: 
+//postconditions:  
+{
+    if ( u.parent == nullptr )
+        this.root = v;
+    else if (u == u.parent.left )
+        u.parent.left = v;
+    else (u.parent.right = v);
+    if ( v != NULL )
+        v.parent = u.parent;
+}
+
+
+//=========================================================================
+// min 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+Node<T> triplinkedlist<T>::min()
+//preconditions: 
+//postconditions:  
+{
+    Node<T> x = this.root;
+    while ( x != NULL ){
+        x = x.left;
+    }
+    return x.parent
+}

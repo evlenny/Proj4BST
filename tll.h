@@ -38,6 +38,8 @@ public:
     string in_order(void);
     void trim(T high, T low);
     Element<T> findNode(triplinkedlist root, const T k);
+    void triplinkedlist<T>::transplant( Node<T> u, Node<T> v);
+    Node<T> triplinkedlist<T>::min(void);
 };
 
 #endif
