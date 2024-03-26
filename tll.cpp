@@ -197,15 +197,16 @@ Element<T> triplinkedlist<T>::findNode(triplinkedlist root, const T k)
 //=========================================================================
 template <class T>
 string triplinkedlist<T>::in_order()
-//preconditions: 
-//postconditions:  
+// preconditions: none
+// postconditions: a string is returned with the in-order traversal of the tree
+
 {
     string s = ""; // Empty string
     if (x != NULL) // If x is not null
     {
-        s += InOrderTreeWalk(x.left);  // Recursively call InOrderTreeWalk on the left child
-        s += x.key;                    // Add the key to the string
-        s += InOrderTreeWalk(x.right); // Recursively call InOrderTreeWalk on the right child
+        s += in_order(x.left);  // Recursively call InOrderTreeWalk on the left child
+        s += x.key;             // Add the key to the string
+        s += in_order(x.right); // ecursively call InOrderTreeWalk on the right child
     }
     return s; // return the string
 }
