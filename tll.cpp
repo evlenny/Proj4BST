@@ -26,25 +26,28 @@ template <class T>
 void triplinkedlist<T>::insert( const Element<T> &elem )
 {
     //if empty, construct
-
-    Node *y = new Node;
+    Node *newNode = new Node(elem);
+    Node *y = nullptr;
     Node *x = head;
 
     while ( x != nullptr){
         y = x;
-        if (elem.get_key() < x.item.get_key()){
-            x = x.left;
+        if (elem.get_key() < x->item.get_key()){
+            x = x->left;
         else{
-            
+            x = x->right;
         }
         }
     }
- 
-
-    if (head != nullptr)
-        head->prev = newNode;
-
-    head = newNode;
+    
+    newNode->parent = y;
+    if (y == nullptr) {
+        head = newNode;
+    } else if (elem.get_key() < y->item.get_key()) {
+        y->left = newNode;
+    } else {
+        y->right = newNode;
+    }
 }
 
 //=========================================================================
