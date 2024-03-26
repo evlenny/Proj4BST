@@ -5,137 +5,210 @@
 using namespace std;
 
 //=========================================================================
-// constructor
+// constructor 
 // Parameters: none
 // Return:	none
 //=========================================================================
 template <class T>
-triplinkedlist<T>::tripinkedlist()
-// preconditions: none
-// postconditions: linked list object is created
+triplinkedlist<T>::triplinkedlist()
+//preconditions: none
+//postconditions: linked list object is created 
 {
     head = nullptr;
 }
 
 //=========================================================================
-// insert
-// Parameters:
-// Return:
+// insert 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::insert()
-// preconditions: none
-// postconditions: linked list object is created
+void triplinkedlist<T>::insert( const Element<T> &elem )
 {
+    //if empty, construct
+
+    Node *y = new Node;
+    Node *x = head;
+
+    while ( x != nullptr){
+        y = x;
+        if (elem.get_key() < x.item.get_key()){
+            x = x.left;
+        else{
+            
+        }
+        }
+    }
+ 
+
+    if (head != nullptr)
+        head->prev = newNode;
+
+    head = newNode;
 }
 
 //=========================================================================
-// remove
-// Parameters:
-// Return:
+// remove 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::remove()
-// preconditions: none
-// postconditions: linked list object is created
+void triplinkedlist<T>::remove(const T k)
+//preconditions: 
+//postconditions: 
 {
+    
 }
 
 //=========================================================================
-// empty
-// Parameters:
-// Return:
+// empty 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::empty()
-// preconditions: none
-// postconditions: linked list object is created
+bool  triplinkedlist<T>::empty( void )
+//preconditions: 
+//postconditions: 
 {
+    return head == nullptr;
 }
 
 //=========================================================================
-// max_key
-// Parameters:
-// Return:
+// max_key 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::max_key()
-// preconditions: none
-// postconditions: linked list object is created
+T triplinkedlist<T>::max_key()
+//preconditions: 
+//postconditions:  
 {
+    Element<T> max = x;
+    while (x != NULL){
+        max = x;
+        x = x.left;
+    }
+    return max.key;
 }
 
 //=========================================================================
-// max_data
-// Parameters:
-// Return:
+// max_data 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::max_data()
-// preconditions: none
-// postconditions: linked list object is created
+T triplinkedlist<T>::max_data()
+//preconditions: 
+//postconditions: 
 {
+    Element<T> max = x;
+    while (x != NULL){
+        max = x;
+        x = x.left;
+    }
+    return max.data;
 }
 
 //=========================================================================
-// min_key
-// Parameters:
-// Return:
+// min_key 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::min_key()
-// preconditions: none
-// postconditions: linked list object is created
+T triplinkedlist<T>::min_key()
+//preconditions: 
+//postconditions:  
 {
+    Element<T> min = x;
+    while (x != NULL){
+        min = x;
+        x = x.right;
+    }
+    return min.key;
 }
 
 //=========================================================================
-// min_data
-// Parameters:
-// Return:
+// min_data 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::min_data()
-// preconditions: none
-// postconditions: linked list object is created
+T triplinkedlist<T>::min_data()
+//preconditions: 
+//postconditions:  
 {
+    Element<T> min = x;
+    while (x != NULL){
+        min = x;
+        x = x.right;
+    }
+    return min.data;
 }
 
 //=========================================================================
-// successor
-// Parameters:
-// Return:
+// successor 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::successor()
-// preconditions: none
-// postconditions: linked list object is created
+T triplinkedlist<T>::successor(const T k)
+//preconditions: 
+//postconditions:  
 {
+    Node x = findNode(this, k);
+    if ( x ==  nullptr )
+        return nullptr;
+    else{
+        Node y = x.parent;
+        while ( y != nullprt and x == y.right){
+            x = y;
+            y = y.parent;
+        }
+        return y
+    }
 }
 
 //=========================================================================
-// in_order
-// Parameters:
-// Return:
+// findNode 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::in_order()
-// preconditions: none
-// postconditions: linked list object is created
+Node triplinkedlist<T>::findNode(triplinkedlist root, const T k)
+//preconditions: 
+//postconditions:  
 {
-    string s = "";
-    in_order(head, s);
-    return s;
+    while (root != nullptr && root.key != k) {
+        if (k < root->key)
+            root = root.left;
+        else
+            root = root.right;
+    }
+    return root;
 }
 
 //=========================================================================
-// trim
-// Parameters:
-// Return:
+// in_order 
+// Parameters: 
+// Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::trim()
-// preconditions: none
-// postconditions: linked list object is created
+string triplinkedlist<T>::in_order()
+//preconditions: 
+//postconditions:  
 {
+    
+}
+
+//=========================================================================
+// trim 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+void triplinkedlist<T>::trim(T high, T low)
+//preconditions: 
+//postconditions:  
+{
+    
 }
