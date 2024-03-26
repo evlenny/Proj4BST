@@ -11,8 +11,8 @@ using namespace std;
 //=========================================================================
 template <class T>
 triplinkedlist<T>::triplinkedlist()
-//preconditions: none
-//postconditions: linked list object is created 
+//preconditions: 
+//postconditions: 
 {
     head = nullptr;
 }
@@ -23,9 +23,9 @@ triplinkedlist<T>::triplinkedlist()
 // Return:	
 //=========================================================================
 template <class T>
-triplinkedlist<T>::insert( const Element<T> &elem )
-//preconditions: none
-//postconditions: linked list object is created 
+void triplinkedlist<T>::insert( const Element<T> &elem )
+//preconditions: 
+//postconditions:  
 
 {
     //if empty, construct
@@ -70,7 +70,7 @@ bool  triplinkedlist<T>::empty( void )
 //preconditions: 
 //postconditions: 
 {
-    return head == nullptr;
+    return (head == nullpt);
 }
 
 //=========================================================================
@@ -158,6 +158,8 @@ T triplinkedlist<T>::successor(const T k)
     Node x = findNode(this, k);
     if ( x ==  nullptr )
         return nullptr;
+    if ( x.right != nullptr)
+        return (x.right.min_data());
     else{
         Node y = x.parent;
         while ( y != nullprt and x == y.right){
