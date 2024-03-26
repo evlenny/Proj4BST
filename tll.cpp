@@ -197,15 +197,16 @@ Element<T> triplinkedlist<T>::findNode(triplinkedlist root, const T k)
 //=========================================================================
 template <class T>
 string triplinkedlist<T>::in_order()
-//preconditions: 
-//postconditions:  
+// preconditions: none
+// postconditions: a string is returned with the in-order traversal of the tree
+
 {
     string s = ""; // Empty string
     if (x != NULL) // If x is not null
     {
-        s += InOrderTreeWalk(x.left);  // Recursively call InOrderTreeWalk on the left child
-        s += x.key;                    // Add the key to the string
-        s += InOrderTreeWalk(x.right); // Recursively call InOrderTreeWalk on the right child
+        s += in_order(x.left);  // Recursively call InOrderTreeWalk on the left child
+        s += x.key;             // Add the key to the string
+        s += in_order(x.right); // ecursively call InOrderTreeWalk on the right child
     }
     return s; // return the string
 }
@@ -221,4 +222,41 @@ void triplinkedlist<T>::trim(T high, T low)
 //postconditions:  
 {
     
+}
+
+//=========================================================================
+// transplant 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+void triplinkedlist<T>::transplant( Node<T> u, Node<T> v)
+//preconditions: 
+//postconditions:  
+{
+    if ( u.parent == nullptr )
+        this.root = v;
+    else if (u == u.parent.left )
+        u.parent.left = v;
+    else (u.parent.right = v);
+    if ( v != NULL )
+        v.parent = u.parent;
+}
+
+
+//=========================================================================
+// min 
+// Parameters: 
+// Return:	
+//=========================================================================
+template <class T>
+Node<T> triplinkedlist<T>::min()
+//preconditions: 
+//postconditions:  
+{
+    Node<T> x = this.root;
+    while ( x != NULL ){
+        x = x.left;
+    }
+    return x.parent
 }
