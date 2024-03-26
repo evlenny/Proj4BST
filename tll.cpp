@@ -200,9 +200,14 @@ string triplinkedlist<T>::in_order()
 //preconditions: 
 //postconditions:  
 {
-    string s = "";
-    in_order(head, s);
-    return s;
+    string s = ""; // Empty string
+    if (x != NULL) // If x is not null
+    {
+        s += InOrderTreeWalk(x.left);  // Recursively call InOrderTreeWalk on the left child
+        s += x.key;                    // Add the key to the string
+        s += InOrderTreeWalk(x.right); // Recursively call InOrderTreeWalk on the right child
+    }
+    return s; // return the string
 }
 
 //=========================================================================
