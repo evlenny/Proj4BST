@@ -60,6 +60,13 @@ void triplinkedlist<T>::remove(const T k)
 //preconditions: 
 //postconditions: 
 {
+    //if k.left == NIL
+      //  Transplant(T,k,k.right)
+    //else if k.right == NIL
+       // Transplant(T,k,k.left)
+    //else y =
+    
+        
     
 }
 
