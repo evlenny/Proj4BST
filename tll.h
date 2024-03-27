@@ -25,7 +25,7 @@ private:
 public:
     triplinkedlist( void );
     void insert( const Element<T> &elem );
-    void remove(const T k);
+    void remove(const Element<T> &elem);
     string to_string( void ) const; 
     bool search(const Element<T> &elem) const;
     bool empty( void );
