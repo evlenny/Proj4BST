@@ -12,7 +12,7 @@ using namespace std;
 template <class T>
 triplinkedlist<T>::triplinkedlist()
 //preconditions: none
-//postconditions: linked list object is created 
+//postconditions: triply linked list object is created 
 {
     head = nullptr;
 }
@@ -20,10 +20,13 @@ triplinkedlist<T>::triplinkedlist()
 //=========================================================================
 // insert 
 // Parameters: 
-// Return:	
+//  elem - element to insert into the tree
+// Return:	none
 //=========================================================================
 template <class T>
 void triplinkedlist<T>::insert( const Element<T> &elem )
+//preconditions: triply linked list exists 
+//postconditions: triply linked list now includes the element to insert in the correct spot 
 {
     //if empty, construct
     Node *newNode = new Node(elem);
@@ -53,12 +56,13 @@ void triplinkedlist<T>::insert( const Element<T> &elem )
 //=========================================================================
 // remove 
 // Parameters: 
-// Return:	
+//  k - key of node to remove from the list
+// Return:	none
 //=========================================================================
 template <class T>
 void triplinkedlist<T>::remove(const T k)
-//preconditions: 
-//postconditions: 
+//preconditions: the tree exists and k is in the tree
+//postconditions: the tree no longer includes the node with key k and maintains the BST property
 {
     //if k.left == NIL
       //  Transplant(T,k,k.right)
@@ -72,28 +76,31 @@ void triplinkedlist<T>::remove(const T k)
 
 //=========================================================================
 // empty 
-// Parameters: 
+// Parameters: none
 // Return:	
+//  true - if the tree is empty
+//  false - if the tree has at least one node
 //=========================================================================
 template <class T>
 bool  triplinkedlist<T>::empty( void )
-//preconditions: 
-//postconditions: 
+//preconditions: the tree object exists
+//postconditions: the boolean value returned correctly describes the tree 
 {
     return head == nullptr;
 }
 
 //=========================================================================
 // max_key 
-// Parameters: 
+// Parameters: none
 // Return:	
+//  the key associated with the max key in the tree 
 //=========================================================================
 template <class T>
 T triplinkedlist<T>::max_key()
-//preconditions: 
-//postconditions:  
+//preconditions: the tree object exists and is not empty
+//postconditions: the largest key in the tree is returned
 {
-    Element<T> max = x;
+    Node *max = this.head;
     while (x != NULL){
         max = x;
         x = x.left;
@@ -103,15 +110,16 @@ T triplinkedlist<T>::max_key()
 
 //=========================================================================
 // max_data 
-// Parameters: 
-// Return:	
+// Parameters: none
+// Return:
+//  the data value associated with the largest key in the tree
 //=========================================================================
 template <class T>
 T triplinkedlist<T>::max_data()
-//preconditions: 
-//postconditions: 
+//preconditions: the tree object exists and is not empty
+//postconditions: the data value associated with the largest key in the tree is correctly returned
 {
-    Element<T> max = x;
+    Node *max = this.head;
     while (x != NULL){
         max = x;
         x = x.left;
@@ -121,15 +129,16 @@ T triplinkedlist<T>::max_data()
 
 //=========================================================================
 // min_key 
-// Parameters: 
+// Parameters: none
 // Return:	
+//  the key associated with the minimum key in the tree 
 //=========================================================================
 template <class T>
 T triplinkedlist<T>::min_key()
-//preconditions: 
-//postconditions:  
+//preconditions: the tree object exists and is not empty
+//postconditions: the key associated with the minimum key in the tree is correctly returned
 {
-    Element<T> min = x;
+    Node *min = this.head;
     while (x != NULL){
         min = x;
         x = x.right;
@@ -139,15 +148,16 @@ T triplinkedlist<T>::min_key()
 
 //=========================================================================
 // min_data 
-// Parameters: 
+// Parameters: none
 // Return:	
+//  the data value associated with the minimum key in the tree 
 //=========================================================================
 template <class T>
 T triplinkedlist<T>::min_data()
-//preconditions: 
-//postconditions:  
+//preconditions: the tree object exists and is not empty
+//postconditions: the data value associated with the minimum key in the tree is correctly returned
 {
-    Element<T> min = x;
+    Node *min = this.head;
     while (x != NULL){
         min = x;
         x = x.right;
@@ -158,12 +168,14 @@ T triplinkedlist<T>::min_data()
 //=========================================================================
 // successor 
 // Parameters: 
+//  k - the key of the node to find successor for
 // Return:	
+//  the node that has the next largest key after k in the tree
 //=========================================================================
 template <class T>
 T triplinkedlist<T>::successor(const T k)
-//preconditions: 
-//postconditions:  
+//preconditions: the tree object exists and contains the key k
+//postconditions: the correct successor of the node with key k is returned 
 {
     Node *x = findNode(this, k);
     
@@ -182,12 +194,15 @@ T triplinkedlist<T>::successor(const T k)
 //=========================================================================
 // findNode 
 // Parameters: 
+//  tree - tree object to search for node
+//  k - key of the node to search for
 // Return:	
+//  node with key k 
 //=========================================================================
 template <class T>
-Element<T> triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
-//preconditions: 
-//postconditions:  
+Node triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
+//preconditions: the tree object tree exists 
+//postconditions: the node with key k is correctly returned or NULL is returned if the k is not in the tree
 {
     Node *x = tree.head;
     
@@ -202,8 +217,9 @@ Element<T> triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
 
 //=========================================================================
 // in_order 
-// Parameters: 
+// Parameters: none
 // Return:	
+//  the string of all keys of the tree in ascending order
 //=========================================================================
 template <class T>
 string triplinkedlist<T>::in_order()
@@ -238,12 +254,14 @@ void triplinkedlist<T>::trim(T high, T low)
 //=========================================================================
 // transplant 
 // Parameters: 
-// Return:	
+//  u - node of the higher node to transplant 
+//  v - node of the lower node to transplant 
+// Return:	none
 //=========================================================================
 template <class T>
 void triplinkedlist<T>::transplant( Node u, Node v)
-//preconditions: 
-//postconditions:  
+//preconditions: the tree object exists and 
+//postconditions:  node ’s parent be- comes node ’s parent, and ’s parent ends up having as its appropriate child
 {
     if ( u.parent == nullptr )
         this.root = v;
@@ -252,4 +270,31 @@ void triplinkedlist<T>::transplant( Node u, Node v)
     else (u.parent.right = v);
     if ( v != NULL )
         v.parent = u.parent;
+}
+
+//=========================================================================
+// get 
+// Parameters: 
+//  k - key of a node to find its data 
+// Return:	
+//  the data associated with the key k
+//=========================================================================
+template <class T>
+T triplinkedlist<T>::get(const T k)
+//preconditions: the tree object exists and contains the key k
+//postconditions: the data associated with the key k is correctly returned and NULL if k is not in the tree
+{
+    Node *x = this.head;
+
+    while (x != nullptr && x.key != k) {
+        if (k < x.key)
+            x = x.left;
+        else
+            x = x.right;
+    }
+
+    if (x != nullptr && x.key == k)
+        return x.item.data;
+    else 
+        return NULL
 }
