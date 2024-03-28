@@ -25,11 +25,11 @@ private:
 public:
     triplinkedlist( void );
     void insert( const Element<T> &elem );
-    void remove(const Element<T> &elem);
+    void remove(const T k);
     string to_string( void ) const; 
     bool search(const Element<T> &elem) const;
     bool empty( void );
-    T get( k );
+    T get( const T k );
     T max_data(void);
     T max_key(void);
     T min_data(void);
@@ -37,9 +37,8 @@ public:
     T successor( const T k);
     string in_order(void);
     void trim(T high, T low);
-    Element<T> findNode(triplinkedlist root, const T k);
-    void triplinkedlist<T>::transplant( Node<T> u, Node<T> v);
-    Node<T> triplinkedlist<T>::min(void);
+    Node findNode(triplinkedlist root, const T k);
+    void triplinkedlist<T>::transplant( Node u, Node v);
 };
 
 #endif
