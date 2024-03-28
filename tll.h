@@ -24,8 +24,9 @@ private:
 
 public:
     triplinkedlist( void );
+    ~triplinkedlist(void);
     void insert( const Element<T> &elem );
-    void remove(const T k);
+    //void remove(const Node<T> &node );
     string to_string( void ) const; 
     bool search(const Element<T> &elem) const;
     bool empty( void );
@@ -37,8 +38,8 @@ public:
     T successor( const T k);
     string in_order(void);
     void trim(T high, T low);
-    Node findNode(triplinkedlist root, const T k);
-    void triplinkedlist<T>::transplant( Node u, Node v);
+    Node triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k);
+    void transplant( Node u, Node v);
 };
 
 #endif

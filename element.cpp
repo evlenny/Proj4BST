@@ -9,7 +9,7 @@
 // Creates an empty Element object
 //=========================================================================
 template <class T>
-Element<T>::Element() : item(T()), key(T()) {
+Element<T>::Element() : data(T()), key(T()) {
     // Default constructor of T is used to initialize item
     // For int, it initializes to 0 (using std::numeric_limits), for std::string, it initializes to empty string
 }
@@ -40,7 +40,7 @@ Element<T>::Element( T d, int k )
 // Pre condition: d and k are valid entries for the element type
 // Post condition: an element is created with d as the data and k as the key 
 {
-	item = d;
+	data = d;
 	key = k;
 }
 
@@ -52,7 +52,7 @@ Element<T>::Element( T d, int k )
 //  key - int value of the element's key 
 //=========================================================================
 template <class T>
-int Element<T>::get_key( void ) const
+T Element<T>::get_key( void ) const
 // Pre condition: element exists 
 // Post condition: correct key vlaue of the element is returned  
 {
@@ -71,7 +71,7 @@ T Element<T>::get_data( void ) const
 // Pre condition: element exists 
 // Post condition: correct data value of the element is returned 
 {
-    return item;
+    return data;
 }
 
 //=========================================================================
@@ -81,11 +81,11 @@ T Element<T>::get_data( void ) const
 //  string - the string containing the data and key of an element 
 //=========================================================================
 template <class T>
-std::string Element<T>::to_string() const 
+string Element<T>::to_string() const 
 // Pre condition: element exists 
 // Post condition: string contains correct data and key value of the element
 {
     ostringstream out;
-    out << "(" << item << "," << key << ")";
+    out << "(" << data << "," << key << ")";
     return out.str();
 }

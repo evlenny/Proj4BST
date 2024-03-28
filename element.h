@@ -20,7 +20,7 @@ public:
     Element( void ); // empty constructor
     Element( const T data, const int k ); // parameter constructor
 
-    int     get_key( void ) const;
+    T     get_key( void ) const;
     T       get_data( void ) const;
     string  to_string( void ) const;
 };

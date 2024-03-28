@@ -24,7 +24,7 @@ triplinkedlist<T>::triplinkedlist()
 // Return:	none
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::deconstructor()
+triplinkedlist<T>::~triplinkedlist()
 //preconditions: triply linked list object exists
 //postconditions: triply linked list object is deleted  
 {
@@ -73,7 +73,7 @@ void triplinkedlist<T>::insert( const Element<T> &elem )
         y->right = newNode;
     }
 }
-
+/*
 //=========================================================================
 // remove 
 // Parameters: 
@@ -82,7 +82,7 @@ void triplinkedlist<T>::insert( const Element<T> &elem )
 //=========================================================================
 template <class T>
 
-void triplinkedlist<T>::remove(const Node<T> &Node )
+void triplinkedlist<T>::remove(const Node<T> &node )
 //preconditions: 
 //postconditions: 
 {
@@ -91,7 +91,7 @@ void triplinkedlist<T>::remove(const Node<T> &Node )
     } else if (elem.right == nullptr)
 
 }
-
+*/
 //=========================================================================
 // empty 
 // Parameters: none
@@ -118,6 +118,7 @@ T triplinkedlist<T>::max_key()
 //preconditions: the tree object exists and is not empty
 //postconditions: the largest key in the tree is returned
 {
+    Node *x = this.head;
     Node *max = this.head;
     while (x != NULL){
         max = x;
@@ -137,6 +138,7 @@ T triplinkedlist<T>::max_data()
 //preconditions: the tree object exists and is not empty
 //postconditions: the data value associated with the largest key in the tree is correctly returned
 {
+    Node *x = this.head;
     Node *max = this.head;
     while (x != NULL){
         max = x;
@@ -156,6 +158,7 @@ T triplinkedlist<T>::min_key()
 //preconditions: the tree object exists and is not empty
 //postconditions: the key associated with the minimum key in the tree is correctly returned
 {
+   Node *x = this.head;
     Node *min = this.head;
     while (x != NULL){
         min = x;
@@ -175,6 +178,7 @@ T triplinkedlist<T>::min_data()
 //preconditions: the tree object exists and is not empty
 //postconditions: the data value associated with the minimum key in the tree is correctly returned
 {
+    Node *x = this.head;
     Node *min = this.head;
     while (x != NULL){
         min = x;
@@ -208,7 +212,7 @@ T triplinkedlist<T>::successor(const T k)
         return y
     }
 }
-
+/*
 //=========================================================================
 // findNode 
 // Parameters: 
@@ -218,7 +222,7 @@ T triplinkedlist<T>::successor(const T k)
 //  node with key k 
 //=========================================================================
 template <class T>
-Node triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
+Node* triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k)
 //preconditions: the tree object tree exists 
 //postconditions: the node with key k is correctly returned or NULL is returned if the k is not in the tree
 {
@@ -232,7 +236,7 @@ Node triplinkedlist<T>::findNode(triplinkedlist tree, const T k)
     }
     return x;
 }
-
+*/
 //=========================================================================
 // in_order 
 // Parameters: none
@@ -249,14 +253,14 @@ string triplinkedlist<T>::in_order()
     return s;
 }
 
-
+/*
 //=========================================================================
 // trim 
 // Parameters: 
 // Return:	
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::trim(Node* root, T low, T high)
+void triplinkedlist<T>::trim(T low, T high)
 //preconditions: 
 //postconditions:  
 {
@@ -290,7 +294,7 @@ void triplinkedlist<T>::trim(Node* root, T low, T high)
     return root;
 }
 
-    */
+    
     Node *x = this.head;
     Node *y = x.parent;
 
@@ -300,6 +304,11 @@ void triplinkedlist<T>::trim(Node* root, T low, T high)
             y = x;
             x = x.right;
         }
+        if (x != NULL ){
+            x.head = x
+            triplylinkedlist<T> yt;
+            yt(this)
+    }
     }
 
     //check LHS for high 
@@ -308,6 +317,10 @@ void triplinkedlist<T>::trim(Node* root, T low, T high)
             y = x;
             x = x.left;
         }
+    }
+
+    if (x != NULL ){
+
     }
 
     //check LHS for low 
@@ -325,9 +338,9 @@ void triplinkedlist<T>::trim(Node* root, T low, T high)
             x = x.right;
         }
     }
+    
 }
-
-
+*/
 //=========================================================================
 // transplant 
 // Parameters: 
