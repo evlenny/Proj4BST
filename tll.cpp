@@ -19,6 +19,25 @@ triplinkedlist<T>::triplinkedlist()
 }
 
 //=========================================================================
+// deconstructor 
+// Parameters: none
+// Return:	none
+//=========================================================================
+template <class T>
+void triplinkedlist<T>::deconstructor()
+//preconditions: triply linked list object exists
+//postconditions: triply linked list object is deleted  
+{
+    Node *x = this.head;
+    if (x)
+    {
+        deconstructor(x->left);
+        deconstructor(x->right);
+        delete x;
+    }
+}
+
+//=========================================================================
 // insert 
 // Parameters: 
 //  elem - element to insert into the tree
