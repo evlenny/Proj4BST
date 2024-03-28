@@ -237,22 +237,24 @@ string triplinkedlist<T>::in_order()
 // Return:	
 //=========================================================================
 template <class T>
-void triplinkedlist<T>::trim(T high, T low)
+void triplinkedlist<T>::trim(Node* root, T low, T high)
 //preconditions: 
 //postconditions:  
 {
-
     /*
-    trimRecursively(Node* root, T low, T high) {
+     {
     if (root == nullptr) return nullptr;
 
     // Trim the left and right subtrees
     root->left = trimRecursively(root->left, low, high);
-    if (root->left) root->left->parent = root;
+    if (root->left){
+        root->left->parent = root;
+    } 
 
     root->right = trimRecursively(root->right, low, high);
-    if (root->right) root->right->parent = root;
-
+    if (root->right) {
+        root->right->parent = root;
+    }
     // If the current node's key is less than low, trim it and return the right subtree
     if (root->item.key < low) {
         Node* rightSubtree = root->right;
