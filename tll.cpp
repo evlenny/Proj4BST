@@ -248,7 +248,40 @@ void triplinkedlist<T>::trim(T high, T low)
 //preconditions: 
 //postconditions:  
 {
-    
+    Node *x = this.head;
+    Node *y = x.parent;
+
+    //check RHS for high
+    if (x.key < high){
+        while ( x != NULL && x.key < high ){
+            y = x;
+            x = x.right;
+        }
+    }
+
+    //check LHS for high 
+    if (x.key > high){
+        while ( x != NULL && x.key > high ){
+            y = x;
+            x = x.left;
+        }
+    }
+
+    //check LHS for low 
+    if (x.key > low){
+        while ( x != NULL && x.key > low ){
+            y = x;
+            x = x.left;
+        }
+    }
+
+    //check RHS for low 
+    if (x.key < low){
+        while ( x != NULL && x.key < low ){
+            y = x;
+            x = x.right;
+        }
+    }
 }
 
 //=========================================================================
