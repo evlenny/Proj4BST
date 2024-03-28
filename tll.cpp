@@ -66,10 +66,18 @@ void triplinkedlist<T>::remove(const Node<T> &Node )
 //preconditions: 
 //postconditions: 
 {
-    if (elem.left == nullptr){
-        transplant(elem.right);
-    } else if (elem.right == nullptr)
-
+    if k.left == NIL
+       Transplant(T,k,k.right)
+    else if k.right == NIL
+        Transplant(T,k,k.left)
+    else y = Tree_successor(z.right)
+        if y = z.right
+            Transplant(T,k,k.left)
+            y.right = z.right
+            y.right.p = y
+         Transplant(T,z,y)
+          y.left = z.left
+          y.left.p = y
 }
 
 //=========================================================================
