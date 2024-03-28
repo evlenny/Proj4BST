@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "tll.h"
+#include <stack>
 
 using namespace std;
 
@@ -66,18 +67,10 @@ void triplinkedlist<T>::remove(const Node<T> &Node )
 //preconditions: 
 //postconditions: 
 {
-    if k.left == NIL
-       Transplant(T,k,k.right)
-    else if k.right == NIL
-        Transplant(T,k,k.left)
-    else y = Tree_successor(z.right)
-        if y = z.right
-            Transplant(T,k,k.left)
-            y.right = z.right
-            y.right.p = y
-         Transplant(T,z,y)
-          y.left = z.left
-          y.left.p = y
+    if (elem.left == nullptr){
+        transplant(elem.right);
+    } else if (elem.right == nullptr)
+
 }
 
 //=========================================================================
@@ -248,6 +241,35 @@ void triplinkedlist<T>::trim(T high, T low)
 //preconditions: 
 //postconditions:  
 {
+
+    /*
+    trimRecursively(Node* root, T low, T high) {
+    if (root == nullptr) return nullptr;
+
+    // Trim the left and right subtrees
+    root->left = trimRecursively(root->left, low, high);
+    if (root->left) root->left->parent = root;
+
+    root->right = trimRecursively(root->right, low, high);
+    if (root->right) root->right->parent = root;
+
+    // If the current node's key is less than low, trim it and return the right subtree
+    if (root->item.key < low) {
+        Node* rightSubtree = root->right;
+        delete root; // Assume delete deallocates memory
+        return rightSubtree;
+    }
+    // If the current node's key is greater than high, trim it and return the left subtree
+    else if (root->item.key > high) {
+        Node* leftSubtree = root->left;
+        delete root; // Assume delete deallocates memory
+        return leftSubtree;
+    }
+    // If the current node is within the range, return it
+    return root;
+}
+
+    */
     Node *x = this.head;
     Node *y = x.parent;
 
