@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "tll.h"
-#include <stack>
 
 using namespace std;
 
@@ -242,13 +241,13 @@ Node* triplinkedlist<T,D>::findNode(const triplinkedlist& tree, const T k)
 //preconditions: the tree object tree exists 
 //postconditions: the node with key k is correctly returned or NULL is returned if the k is not in the tree
 {
-    Node *x = tree.head;
+    Node *x = tree->head;
     
-    while (x != nullptr && x.key != k) {
-        if (k < x.key)
-            x = x.left;
+    while (x != nullptr && x->item.get_key() != k) {
+        if (k < x->item.get_key())
+            x = x->left;
         else
-            x = x.right;
+            x = x->right;
     }
     return x;
 }
@@ -400,7 +399,7 @@ D triplinkedlist<D,T>::get(const T k)
     }
 
     if (x != nullptr && x->item.key == k)
-        return x->item.data;
+        return x->item.get_data();
     else 
         return NULL;
 }

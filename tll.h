@@ -39,7 +39,7 @@ public:
     T successor( const T k);
     string in_order(void);
     void trim(T high, T low);
-    //Node triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k);
+    //Node* triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k);
     void transplant( Node u, Node v);
 };
 
