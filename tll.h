@@ -8,13 +8,13 @@ using namespace std;
 #ifndef TRIPLYLINKEDLIST_H
 #define TRIPLYLINKEDLIST_H
 
-template <class T> 
+template <class D, class T>
 class triplinkedlist
 {
 private:
     struct Node
     {
-        Element<T> item;
+        Element<D,T> item;
         Node *parent;
         Node *left;
         Node *right;
@@ -25,20 +25,21 @@ private:
 public:
     triplinkedlist( void );
     ~triplinkedlist(void);
-    void insert( const Element<T> &elem );
+    void deleteTree(Node* node);
+    void insert( const Element<D,T> &elem );
     //void remove(const Node<T> &node );
     string to_string( void ) const; 
-    bool search(const Element<T> &elem) const;
+    bool search(const Element<D,T> &elem) const;
     bool empty( void );
-    T get( const T k );
-    T max_data(void);
+    D get( const T k );
+    D max_data(void);
     T max_key(void);
-    T min_data(void);
+    D min_data(void);
     T min_key(void);
     T successor( const T k);
     string in_order(void);
     void trim(T high, T low);
-    Node triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k);
+    //Node triplinkedlist<T>::findNode(const triplinkedlist& tree, const T k);
     void transplant( Node u, Node v);
 };
 

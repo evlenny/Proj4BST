@@ -9,19 +9,19 @@ using namespace std;
 #define ELEMENT_H
 
 // Declaring element template class
-template <class T>
+template <class D, class T>
 class Element 
 {
 private:
-        T data;
+        D data;
         T key;
 
 public:
     Element( void ); // empty constructor
-    Element( const T data, const int k ); // parameter constructor
+    Element( const D data, const T k ); // parameter constructor
 
     T     get_key( void ) const;
-    T       get_data( void ) const;
+    D       get_data( void ) const;
     string  to_string( void ) const;
 };
 

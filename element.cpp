@@ -8,8 +8,8 @@
 // Returns:	new Element object
 // Creates an empty Element object
 //=========================================================================
-template <class T>
-Element<T>::Element() : data(T()), key(T()) {
+template <class D, class T>
+Element<D,T>::Element() : data(D()), key(T()) {
     // Default constructor of T is used to initialize item
     // For int, it initializes to 0 (using std::numeric_limits), for std::string, it initializes to empty string
 }
@@ -35,8 +35,8 @@ Element<T>::Element() : data(T()), key(T()) {
 //  k - key for the element
 // Returns:	none
 //=========================================================================
-template <class T>
-Element<T>::Element( T d, int k )
+template <class D, class T>
+Element<D,T>::Element( D d, T k )
 // Pre condition: d and k are valid entries for the element type
 // Post condition: an element is created with d as the data and k as the key 
 {
@@ -51,8 +51,8 @@ Element<T>::Element( T d, int k )
 // Returns:	
 //  key - int value of the element's key 
 //=========================================================================
-template <class T>
-T Element<T>::get_key( void ) const
+template <class D, class T>
+T Element<D,T>::get_key( void ) const
 // Pre condition: element exists 
 // Post condition: correct key vlaue of the element is returned  
 {
@@ -66,8 +66,8 @@ T Element<T>::get_key( void ) const
 // Returns:	
 //  item - data value of the element 
 //=========================================================================
-template <class T>
-T Element<T>::get_data( void ) const
+template <class D, class T>
+D Element<D,T>::get_data( void ) const
 // Pre condition: element exists 
 // Post condition: correct data value of the element is returned 
 {
@@ -80,8 +80,8 @@ T Element<T>::get_data( void ) const
 // Returns:	
 //  string - the string containing the data and key of an element 
 //=========================================================================
-template <class T>
-string Element<T>::to_string() const 
+template <class D, class T>
+string Element<D,T>::to_string() const 
 // Pre condition: element exists 
 // Post condition: string contains correct data and key value of the element
 {
